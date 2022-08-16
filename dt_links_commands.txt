@@ -1,0 +1,108 @@
+﻿General library (access to operation manual, hands-on book, city building instructions, etc.) : https://docs.duckietown.org/daffy/ ************************
+
+
+ETH lecture (only slide presentations accessible) : https://idsc.ethz.ch/education/lectures/duckietown.html 
+
+
+Software Documentation : https://docs.duckietown.org/DT19/software_reference/out/index.html 
+
+
+Forum : https://www.duckietown.org/forum 
+
+
+Issues Repository : 
+https://github.com/duckietown/duckietown-shell-commands/issues?page=1&q=is%3Aissue+is%3Aopen 
+https://github.com/duckietown/docs-opmanual_duckiebot/issues 
+https://docs.duckietown.org/daffy/duckietown-robotics-development/duckietown-robotics-development-ready-tablet.pdf 
+https://github.com/duckietown/duckietown-shell/issues 
+
+
+Stack Overflow (ask permission in Slack) : https://stackoverflow.com/c/duckietown/questions 
+
+
+Simulation section : https://github.com/duckietown/gym-duckietown 
+
+
+PiCamera library : https://picamera.readthedocs.io/en/release-1.13/install.html 
+
+
+COMMANDS
+$ dts fleet discover
+(password = quackquack) $ ssh duckie@duckienorlab1
+
+
+(SSH) $ sudo poweroff
+(SSH) $ sudo reboot
+
+
+Permission issue: 
+$ newgrp docker
+$ docker run hello-world
+
+
+$ dts start_gui_tools duckienorlab1
+$ rqt_image_view
+$ rqt_graph
+
+
+
+
+TOKEN : dt1-3nT8KSoxVh4MifQpfuzh7AT4q8nWKXrQE2NZUJT1V8ZU1br-43dzqWFnWd8KBa1yev1g3UKnzVxZkkTbfXmrLyjG95UTEgC8AEeaBJZymgQ436fa24
+
+
+
+
+
+
+
+
+Start demos
+
+
+Display demos
+$ dts start_gui_tools DUCKIENAME
+$ cd ..
+$ cd dt-core/packages/duckietown_demos/launch/
+$ ls
+
+
+Start demo (in normal terminal!)
+$ dts duckiebot demo --demo_name DEMO --duckiebot_name DUCKIENAME --package_name duckietown_demos --debug
+
+
+Visualize demo
+$ dts start_gui_tools DUCKIENAME
+$ rqt_image_view                        or                        $ rqt_graph
+Choose the right topic in rqt_image_view
+
+
+-> apriltag_detector
+
+
+
+
+
+
+Check if camera is connected : vcgencmd get_camera
+
+
+
+
+Temporary change of AWB : 
+1. export ROS_MASTER_URI=”http://duckienorlab1.local:11311” OR setRosMasterDuckieNorlab1 (custom function in .bashrc)
+2. rosparam set /duckienorlab1/camera_node/awb_mode MODE
+
+
+Rosparam kinematics:
+* v_max : 0.1
+* omega_max : 1.8
+
+
+Exp :
+* v_max : 0.1
+* omega_max : 2.0
+
+
+
+
+Dans container start_gui_tools : rosservice call /duckienorlab1/led_emitter_node/set_pattern "pattern_name: {data: LIGHT_OFF}"
